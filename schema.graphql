@@ -1,0 +1,38 @@
+type Advert {
+  id: ID
+  slug: String
+}
+
+type BettingOdds {
+  id: ID
+  odds: String
+  teamId: String
+}
+
+type Game {
+  homeTeam: Team
+  awayTeam: Team
+  homeTeamBettingOdds: BettingOdds
+  awayTeamBettingOdds: BettingOdds
+  id: ID
+  date: String
+  homeTeamId: String
+  awayTeamId: String
+  homeTeamBettingOddsId: String
+  awayTeamBettingOddsId: String
+  gameAds: [Advert]
+}
+
+type Team {
+  name: String
+  id: ID
+}
+
+type Query {
+  getGame(id: ID!): Game
+  listGames: [Game]
+}
+
+schema {
+  query: Query
+}
